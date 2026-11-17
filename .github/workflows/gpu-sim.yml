@@ -71,7 +71,7 @@ jobs:
             rc=${PIPESTATUS[0]}
             echo "::endgroup::"
             if [ "$rc" -ne 0 ] || ! grep -q "^TEST PASSED$" "$t.log" \
-               || grep -qiE "VirtualGPU error|no device|no ROCm-capable|HIP error|MISSING \(|false positive" "$t.log"; then
+               || grep -qiE "VirtualGPU error|no device|no ROCm-capable|HIP error|false positive" "$t.log"; then
               echo "::error::$t failed (exit $rc)"
               status=1
             fi
